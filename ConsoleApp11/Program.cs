@@ -1,34 +1,40 @@
-﻿class Program
+class Program
 {
     static void Main(string[] args)
-    {        
+    {
         Console.Write("Lütfen Ürün İsmini Giriniz : ");
         string urunIsmi = Console.ReadLine();
 
         Console.Write("Eklenecek Adet Miktarını Yazınız : ");
         string adetGirisi = Console.ReadLine();
+        int adet = Convert.ToInt32(adetGirisi);
 
-        Console.Write("Fiyatı Yazınız : ");
+        Console.Write("Fiyatı Yazınız (boş bırakabilirsiniz) : ");
         string fiyatGirisi = Console.ReadLine();
 
-        Ekle(urunIsmi, adetGirisi, fiyatGirisi);
+        if (fiyatGirisi.Length == 0)
+        {
+            Ekle(urunIsmi, adet);
+        }
+        else
+        {
+            double fiyat = Convert.ToDouble(fiyatGirisi);
+            Ekle(urunIsmi, adet, fiyat);
+        }
     }
 
-    static void Ekle(string UrunIsmi, string AdetGirisi, string FiyatGirisi)
+    static void Ekle(string urunIsmi, int adet)
     {
-        Console.WriteLine($" {UrunIsmi} Sepete Başarıyla Eklendi!");
+        Console.WriteLine($" {urunIsmi} Sepete Başarıyla Eklendi!");
+        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi.");
+        Console.WriteLine("Fiyat belirtilmedi.");
+    }
 
-        if (AdetGirisi.Length > 0)
-        {
-            int adet = Convert.ToInt32(AdetGirisi);
-            Console.WriteLine($"{adet} Adet {UrunIsmi} Ürünü Sepete Eklendi.");
-
-            if (FiyatGirisi.Length > 0)
-            {
-                double fiyat = Convert.ToDouble(FiyatGirisi);
-                double toplam = adet * fiyat;
-                Console.WriteLine($"Toplam Tutar : {toplam} Türk Lirası. {UrunIsmi} Siparişiniz Tamamlanmıştır. İyi Günler Dileriz!");
-            }
-        }
+    static void Ekle(string urunIsmi, int adet, double fiyat)
+    {
+        Console.WriteLine($" {urunIsmi} Sepete Başarıyla Eklendi!");
+        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi.");
+        double toplam = adet * fiyat;
+        Console.WriteLine($"Toplam Tutar: {toplam} Türk Lirası. {urunIsmi} Siparişiniz Tamamlanmıştır. İyi Günler Dileriz!");
     }
 }
