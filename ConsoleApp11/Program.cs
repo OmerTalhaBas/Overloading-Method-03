@@ -9,7 +9,7 @@ class Program
         string adetGirisi = Console.ReadLine();
         int adet = Convert.ToInt32(adetGirisi);
 
-        Console.Write("Fiyatı Yazınız (boş bırakabilirsiniz) : ");
+        Console.Write("Fiyatı Yazınız : ");
         string fiyatGirisi = Console.ReadLine();
 
         if (fiyatGirisi.Length == 0)
@@ -26,14 +26,14 @@ class Program
     static void Ekle(string urunIsmi, int adet)
     {
         Console.WriteLine($" {urunIsmi} Sepete Başarıyla Eklendi!");
-        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi.");
+        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi!");
         Console.WriteLine("Fiyat belirtilmedi.");
     }
 
     static void Ekle(string urunIsmi, int adet, double fiyat)
     {
         Console.WriteLine($" {urunIsmi} Sepete Başarıyla Eklendi!");
-        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi.");
+        Console.WriteLine($"{adet} Adet {urunIsmi} Ürünü Sepete Eklendi!");
         double toplam = adet * fiyat;
         Console.WriteLine($"Toplam Tutar: {toplam} Türk Lirası. {urunIsmi} Siparişiniz Tamamlanmıştır. İyi Günler Dileriz!");
     }
